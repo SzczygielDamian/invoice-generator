@@ -1,0 +1,57 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="products">
+        <button  mat-stroked-button type="button" (click)="addProduct()">Add Item</button>
+        @if (!products.controls.length) {
+            PLEASE ADD ITEM
+        } @else {
+            @for (product of products.controls; track product; let i = $index ) {
+            <div class="form-group-container" [formGroupName]="i">
+                <div class="form-field-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Product name</mat-label>
+                        <input matInput placeholder="Name" formControlName="name">
+                    </mat-form-field>
+                    <app-error-message
+                            [controlInput]="product.get('name')"
+                            [minLength]="3"
+                            [maxLength]="30"
+                            [formSubmitted]="submitted"
+                    ></app-error-message>
+                </div>
+                
+                <div class="form-field-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Count</mat-label>
+                        <input matInput type="number" formControlName="count" min="1" max="100" appBlockInvalidKeys>
+                    </mat-form-field>
+                    <app-error-message
+                        [controlInput]="product.get('count')"
+                        [minValue]="1"
+                        [maxValue]="30"
+                        [formSubmitted]="submitted"
+                    ></app-error-message>
+                </div>
+
+                <div class="form-field-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input matInput type="number" formControlName="price" min="1" max="1000000" appBlockInvalidKeys>
+                    </mat-form-field>
+                    <app-error-message
+                        [controlInput]="product.get('price')"
+                        [minValue]="1"
+                        [maxValue]="1000000"
+                        [formSubmitted]="submitted"
+                    ></app-error-message>
+                </div>
+
+                <button mat-fab class="delete" type="button" (click)="deleteProduct(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+             <hr>
+            }
+        }
+    </div>
+    <button mat-stroked-button type="submit">Save Products</button>
+</form>

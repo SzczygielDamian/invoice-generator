@@ -1,0 +1,29 @@
+:host {
+    padding: 15px;
+}
+
+.form-group-container {
+    display: flex;
+    flex-direction: row;
+    
+    &:first-of-type {
+        margin-top: 10px;
+    }
+
+    mat-form-field {
+        margin-right: 15px;
+    }
+    
+    .form-field-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+button {
+    background: #fff;
+}
+
+.delete {
+    color: #c90303;
+}

@@ -1,0 +1,18 @@
+@let control = controlInput();
+@if (control && control.invalid && formSubmitted()) {
+    @if(control.hasError('required')) {
+        <mat-error>Field is required</mat-error>
+    }
+    @if(control.hasError('minlength')) {
+        <mat-error>Minimum number of characters is {{ minLength() }}</mat-error>
+    }
+    @if(control.hasError('maxlength')) {
+        <mat-error>Maximum number of characters is {{ maxLength() }}</mat-error>
+    }
+    @if(control.hasError('min')) {
+        <mat-error>Minimum value is {{ minValue() }}</mat-error>
+    }
+    @if(control.hasError('max')) {
+        <mat-error>Maximum value is {{ maxValue() }}</mat-error>
+    }
+}

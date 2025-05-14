@@ -1,0 +1,11 @@
+.mdc-data-table__row:last-child>.mat-mdc-cell {
+    border-bottom-color: var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12)));
+    border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
+    border-bottom-style: solid;
+    letter-spacing: var(--mat-table-row-item-label-text-tracking, var(--mat-sys-body-medium-tracking));
+    line-height: inherit;
+}
+
+.calculated-container {
+    padding: 15px 0px 15px 15px;
+}
