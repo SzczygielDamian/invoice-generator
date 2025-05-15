@@ -5,6 +5,7 @@
 .form-group-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     
     &:first-of-type {
         margin-top: 10px;
@@ -22,6 +23,7 @@
 
 button {
     background: #fff;
+    margin: 5px 0;
 }
 
 .delete {

@@ -1,5 +1,4 @@
-<div>
-    @if (productList.length) {
+@if (productList.length) {
     <section class="mat-elevation-z8" tabindex="0">
         <table mat-table [dataSource]="productList">
     
@@ -25,7 +24,7 @@
     <div class="calculated-container">
         <span>Calculated quantity products: {{ calculatedQuantity }}</span>         
     </div>
-    } @else {
-        No items
-    }
-</div>
+} @else {
+     <app-message [message]="'No items'"></app-message>
+}
+

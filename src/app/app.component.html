@@ -8,3 +8,11 @@
     </mat-card>
   </div>
 </div>
+@if (showFooter) {
+  @defer {
+    <app-footer></app-footer> 
+  }
+  @loading {
+    <p>loading data in footer</p>
+  }
+}

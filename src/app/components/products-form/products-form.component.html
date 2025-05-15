@@ -1,8 +1,8 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div formArrayName="products">
         <button  mat-stroked-button type="button" (click)="addProduct()">Add Item</button>
-        @if (!products.controls.length) {
-            PLEASE ADD ITEM
+        @if (!products.controls.length && this.submitted) {
+            <app-message [message]="'Please add items'"></app-message>
         } @else {
             @for (product of products.controls; track product; let i = $index ) {
             <div class="form-group-container" [formGroupName]="i">

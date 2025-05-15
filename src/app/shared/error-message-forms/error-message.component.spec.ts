@@ -14,6 +14,8 @@ describe('ErrorMessageComponent', () => {
 
     fixture = TestBed.createComponent(ErrorMessageComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('controlInput', null); 
+    fixture.componentRef.setInput('formSubmitted', false); 
     fixture.detectChanges();
   });
 

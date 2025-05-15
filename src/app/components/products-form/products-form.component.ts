@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MessageComponent } from '../../shared/message/message.component';
 
 @Component({
   selector: 'app-products-form',
@@ -21,7 +22,9 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule, 
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule],
+    MessageComponent,
+    ReactiveFormsModule
+  ],
   templateUrl: './products-form.component.html',
   styleUrl: './products-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -54,14 +57,14 @@ export class ProductsFormComponent {
   }
 
   deleteProduct(productIndex: number): void {
-    this.products.removeAt(productIndex);
+    this.products.removeAt(productIndex);  
   }
 
   onSubmit(): void { 
     this.submitted = true;
-    
-    if (this.productForm.valid) {
-      const productsData = this.productForm.get('products')?.value;
+
+    const productsData = [...this.productForm.get('products')?.value];
+    if (productsData.length && this.productForm.valid) {
       productsData.forEach((product: Product) => {
         this.productService.addProduct(product);
       });

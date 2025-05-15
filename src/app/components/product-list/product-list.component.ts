@@ -2,10 +2,12 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { MatTableModule } from '@angular/material/table';
+import { MessageComponent } from '../../shared/message/message.component';
+
 
 @Component({
   selector: 'app-product-list',
-  imports: [MatTableModule],
+  imports: [MatTableModule, MessageComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -13,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
 export class ProductListComponent implements OnInit {
     displayedColumns: string[] = ['name', 'count', 'price'];
 
-    productService = inject(ProductService);
+    private productService = inject(ProductService);
+  
     calculatedQuantity: number = 0;
     productList: Product[] = [];
 
