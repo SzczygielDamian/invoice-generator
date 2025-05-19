@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -6,7 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   selector: 'app-error-message',
   imports: [MatFormFieldModule],
   templateUrl: './error-message.component.html',
-  styleUrl: './error-message.component.scss'
+  styleUrl: './error-message.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ErrorMessageComponent {
   controlInput = input.required<AbstractControl | null>();
